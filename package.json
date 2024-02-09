@@ -1,0 +1,15 @@
+{
+  "name": "cypress_prototipo",
+  "version": "1.0.0",
+  "description": "Projeto pessoal para automatizar uma funcionalidade do sistema Filt",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.6.4"
+  }
+}
