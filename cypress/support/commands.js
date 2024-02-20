@@ -24,19 +24,18 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('login', (username, password) => {
+Cypress.Commands.add('login', (
+    username = Cypress.env('username'), 
+    password = Cypress.env('password')
+) => {
     cy.session([username, password], () => {
         
         cy.visit('/');
-
         cy.get('.login-form').within(() => {
-            cy.get('.row-cpf').find('.login-input').focus().type(username)
-            cy.get('.row').find('.password-input').focus().type(password)
-            cy.get('#btnLogin').click({force: true})
-            cy.get('#btnLogin').click({force: true})
-            cy.wait(5000)
-
-          })
+            cy.get('#username').focus().type(username)
+            cy.get('#password').focus().type(password)
+            cy.root().submit().wait(5000)
+        })
     },
     {
         cacheAcrossSpecs: true
